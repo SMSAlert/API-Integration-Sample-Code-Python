@@ -24,9 +24,10 @@ test_requirements = [
 
 setup(
     name='smsAlert',
-    version='0.5.0',
+    version='1.0.0',
     description="A simple python client for Sms Alert APIs",
     long_description=readme + '\n\n' + history,
+    long_description_content_type= 'text/markdown',
     author="Prashant",
     author_email='prashant@cozyvision.com',
     url='https://github.com/smsAlert',
