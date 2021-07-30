@@ -24,7 +24,7 @@ class TestsmsAlertMsg(unittest.TestCase):
         pass
 
     def test_send_sms(self):
-        self.client.send_sms('Test SMS', '9971XXXXXX')
+        self.client.send_sms('9971XXXXXX','Test SMS', 'CVDEMO', 'demo')
 
     def test_check_otp_status(self):
         self.client.check_otp_status('9971XXXXXX', 'adbkhDGvad72t8HJDVd396HD')
