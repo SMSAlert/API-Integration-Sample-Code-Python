@@ -1,5 +1,5 @@
-===============================
-smsAlert Python Sample Code
+
+SMS Alert Python Sample Code
 ===============================
 
 A simple python client for smsAlert APIs
@@ -9,15 +9,17 @@ A simple python client for smsAlert APIs
 Features
 --------
 
-* Send sms to any mobile number using apikey, senderid, route.
+* Send sms to any mobile number using username, password, senderid, route.
 
 
 Requirements
---------
+------------
 
-* apikey : Api Key(This key is unique for every user)
+* username : SMS Alert account username
 
-* number : single mobile number (Keep number in international format)
+* password : SMS Alert account password
+
+* mobileno : Destination mobile number (Keep number in international format)
 
 * message : Message Content to send
 
@@ -25,29 +27,27 @@ Requirements
 
 * route : If your operator supports multiple routes then give one route name
 
-* senderno : Sender Mobile No
 
 How to use
---------
+----------
 
 //import smsAlert.py where you want to send msg
 
-	from .smsAlert import smsAlertMsg
+	from smsAlert import smsAlertMsg
 
 	class smsAlertMsg(unittest.TestCase):
    
     def setUp(self):
-		api_key = ''  # add your api key for sending SMSs
-		senderid = ''  # add your 6 digit sender's ID
-		route = ''  # add your route
+	    username='' # add your SMS Alert username
+        password='' # add your SMS Alert password
 	
-	self.client = smsAlertMsg(api_key=api_key, sender_id=senderid, route=route)
+	self.client = smsAlertMsg(username=username,password=password)
 
     def tearDown(self):
         pass
 
     def test_send_sms(self):
-        self.client.send_sms('Test SMS', '9971XXXXXX')
+        self.client.send_sms('918010551055','Test SMS','CVDEMO','demo') #(mobileno, message, senderid, route)
 		
 	if __name__ == '__main__':
     import sys
