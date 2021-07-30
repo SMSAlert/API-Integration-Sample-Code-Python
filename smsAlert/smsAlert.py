@@ -19,22 +19,21 @@ class smsAlertMsg(object):
     It includes methods for calling sms api of smsAlert
     """
 
-    def __init__(self, api_key, **kwargs):
-        self.auth_key = api_key
-
-        self.sender_id = kwargs.get('sender_id') or 'CVTECH'
-        self.route = kwargs.get('route') or 'nondnd'
+    def __init__(self, username, password, **kwargs):
+        self.username = username
+        self.password = password
 
         self.sms_url = 'http://smsalert.co.in/api/push.json?'
 
 
-    def send_sms(self, message, mobile):
+    def send_sms(self,mobileno, message, senderid, route):
         res = requests.get(self.sms_url,
-                           params={'apikey': self.auth_key,
-                                   'mobileno': mobile,
+                           params={'user': self.username,
+                                   'pwd': self.password,
+                                   'mobileno': mobileno,
                                    'text': message,
-                                   'sender': self.sender_id,
-                                   'route': self.route,
+                                   'sender': senderid,
+                                   'route': route,
                                    'response': 'json'})
         return json.loads(res.content)
     
